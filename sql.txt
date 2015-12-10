@@ -1,0 +1,69 @@
+CREATE DATABASE facturas;
+USE facturas;
+
+CREATE TABLE facturas
+(cod_fac integer unsigned primary key,
+fecha date,
+IVA integer unsigned,
+existe_cli boolean,
+cliente varchar(100));
+
+CREATE TABLE clientes
+(cif varchar(50) primary key,
+direccion varchar(100),
+cuenta integer);
+
+CREATE TABLE conceptos
+(cod_con integer unsigned AUTO_INCREMENT primary key,
+concepto varchar(5000),
+precio decimal(10,2));
+
+CREATE TABLE tener_f_c
+(concepto varchar(600),
+cod_fac integer unsigned,
+cantidad integer,
+precio_u decimal(10,2),
+orden integer,
+primary key(concepto, cod_fac));
+
+
+
+alter table facturas
+add column detalles varchar(600);
+
+
+
+
+
+
+
+
+alter table facturas
+add column cuenta_laboral varchar(50);
+
+alter table facturas
+add column cuenta_kutxa varchar(50);
+
+
+
+
+alter table tener_f_c
+modify column precio_u decimal(10,2);
+
+alter table conceptos
+modify column precio decimal(10,2);
+
+
+ALTER TABLE tener_f_c
+ADD CONSTRAINT fk_tener_f_c
+FOREIGN KEY (cod_fac) 
+REFERENCES facturas(cod_fac) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
+
+ALTER TABLE tener_f_c
+ADD CONSTRAINT fk_tener_f_c2
+FOREIGN KEY (concepto) 
+REFERENCES conceptos(concepto) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE;
