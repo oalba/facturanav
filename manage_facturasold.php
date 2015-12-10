@@ -1,5 +1,5 @@
 <html>
-<head><title>Buscar factura</title>
+<head><title>Administrar facturas</title>
 <link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
@@ -24,6 +24,7 @@
             <li><a href="add_cliente.php">Añadir</a></li>
         </ul>
     </li>
+    <li style="float:right;list-style-type:none;margin: 0 0 10px 10px;"><a href="about.html">About</a></li>
 </ul>
 </div>
 </header>
