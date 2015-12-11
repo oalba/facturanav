@@ -24,7 +24,7 @@
             <li><a href="add_cliente.php">Añadir</a></li>
         </ul>
     </li>
-    <li style="float:right;list-style-type:none;margin: 0 0 10px 10px;"><a href="about.html">About</a></li>
+    <li class="about"><a href="about.html">About</a></li>
 </ul>
 </div>
 </header>

@@ -8,6 +8,18 @@ body {
   margin-top:60px;
 }
 
+li.about{
+  float:right;
+  list-style-type:none;
+  margin: 0 0 10px 10px;
+
+}
+
+.aboutcuerpo{
+  padding:30px;
+  margin:30px;
+}
+
 .button1 {width:100%;height:100%;}
 .button2 {width:100%;height:50%;}
 
@@ -24,9 +36,14 @@ body {
 
 .nav li {
   font-family: 'Oswald', sans-serif;
-  font-size: 1.2em;
-  line-height: 40px;
+  font-size: 1.4em;
+  line-height: 50px;
   text-align: left;
+  width: 130px;
+  border-bottom: none;
+  height: 50px;
+  display: inline-block;
+  margin-right: -4px;
 }
 
 .nav a {
@@ -34,7 +51,7 @@ body {
   color: #fff;
   display: block;
   padding-left: 15px;
-  border-bottom: 1px solid #888;
+  border-bottom: none;
   transition: .3s background-color;
 }
 
@@ -48,9 +65,20 @@ body {
   cursor: default;
 }
 
+.nav > ul > li {
+  text-align: center;
+}
+
+.nav > ul > li > a {
+  padding-left: 0;
+}
+
 /* Sub Menus */
 .nav li ul {
   margin-top:50px;
+  position: absolute;
+  display: none;
+  width: inherit;
 }
 
 .nav li li {
@@ -60,6 +88,13 @@ body {
   padding: 0;
   margin: 0;
 }
+.nav li:hover ul {
+  display: block;
+}
+
+.nav li ul li {
+  display: block;
+}
 
 /*******************************************
    Style menu for larger screens
@@ -68,41 +103,73 @@ body {
    or other values could be used depending on other factors
 ********************************************/
 
-@media screen and (min-width: 650px) {
-  .nav li {
+@media screen and (max-width: 525px) {
+  .cuerpo {
+    margin-left:130px;
+    margin-top:20px;
+  }
+
+  .aboutcuerpo{
+    margin-left:130px;
+    margin-top:-20px;
+  }
+
+  .nav ul {
+    margin-right: 0;
     width: 130px;
+    height: 100%;
+  }
+  .nav li {
     border-bottom: none;
-    height: 50px;
     line-height: 50px;
     font-size: 1.4em;
-    display: inline-block;
+    display: list-item;
     margin-right: -4px;
+    margin-bottom:100px;
   }
 
-  .nav a {
+  /*.nav a {
     border-bottom: none;
-  }
+  }*/
 
   .nav > ul > li {
-    text-align: center;
+    text-align: left;
   }
 
   .nav > ul > li > a {
-    padding-left: 0;
+    padding-left: 10;
   }
 
   /* Sub Menus */
   .nav li ul {
-    position: absolute;
-    display: none;
+    margin-top:0px;
+    position: relative;
+    display: list-item;
     width: inherit;
+    height: 50px;
   }
 
-  .nav li:hover ul {
-    display: block;
+  .nav > ul > li > ul > li > a {
+    padding-left: 25;
   }
+
+  /*.nav li:hover ul {
+    display: block;
+  }*/
 
   .nav li ul li {
+    position: relative;
     display: block;
+    width: inherit;
+    height: 50px;
+  }
+
+  li.about{
+    margin: 0 0 0 0;
+    position:absolute;
+    bottom:0;
+    left:0;
+    margin-bottom:0px;
   }
 }
+
