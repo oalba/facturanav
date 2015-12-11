@@ -171,7 +171,7 @@
             echo "<br/>¡ERROR! No hay facturas que cumplan esas condiciones.";
         }else{
             $num_fila = 0; 
-            echo "<table border=1 style='width: 100%;'>";
+            echo "<table border=1 style='border: 1px solid black; border-collapse: collapse;width: 100%;'>";
             while ($row = mysql_fetch_assoc($selec)) {
                 echo "<tr><td><table style='width: 100%;'>";
                 echo "<tr bgcolor=\"bbbbbb\" align=center><th>Codigo</th><th style='width: 15%;'>Fecha</th><th>Cliente</th><th>CIF</th><th style='width: 15%;'>IVA %</th></tr>";

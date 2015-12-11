@@ -13,7 +13,6 @@ li.about{
   float:right;
   list-style-type:none;
   margin: 0 0 10px 10px;
-
 }
 
 .aboutcuerpo{
@@ -120,6 +119,7 @@ li.about{
     width: 130px;
     height: 100%;
   }
+
   .nav li {
     border-bottom: none;
     line-height: 50px;
@@ -184,6 +184,7 @@ li.about{
     width: 130px;
     height: 100%;
   }
+  
   .nav li {
     border-bottom: none;
     line-height: 50px;
@@ -247,6 +248,7 @@ li.about{
     width: 130px;
     height: 100%;
   }
+  
   .nav li {
     border-bottom: none;
     line-height: 50px;
@@ -310,6 +312,7 @@ li.about{
     width: 130px;
     height: 100%;
   }
+  
   .nav li {
     border-bottom: none;
     line-height: 50px;
