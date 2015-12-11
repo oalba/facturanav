@@ -99,7 +99,7 @@ li.about{
 /*******************************************
    Style menu for larger screens
 
-   Using 650px (130px each * 5 items), but ems
+   Using 525px, but ems
    or other values could be used depending on other factors
 ********************************************/
 
@@ -128,9 +128,69 @@ li.about{
     margin-bottom:100px;
   }
 
-  /*.nav a {
+  .nav > ul > li {
+    text-align: left;
+  }
+
+  .nav > ul > li > a {
+    padding-left: 10;
+  }
+
+  /* Sub Menus */
+  .nav li ul {
+    margin-top:0px;
+    position: relative;
+    display: list-item;
+    width: inherit;
+    height: 50px;
+  }
+
+  .nav > ul > li > ul > li > a {
+    padding-left: 25;
+  }
+
+  .nav li ul li {
+    position: relative;
+    display: block;
+    width: inherit;
+    height: 50px;
+  }
+
+  li.about{
+    margin: 0 0 0 0;
+    position:absolute;
+    bottom:0;
+    left:0;
+    margin-bottom:0px;
+  }
+}
+
+/*---TELEPHONE FORMAT----*/
+/*----Ratio 0.75----*/
+@media only screen and (-webkit-device-pixel-ratio:.75) {
+  .cuerpo {
+    margin-left:130px;
+    margin-top:20px;
+  }
+
+  .aboutcuerpo{
+    margin-left:130px;
+    margin-top:-20px;
+  }
+
+  .nav ul {
+    margin-right: 0;
+    width: 130px;
+    height: 100%;
+  }
+  .nav li {
     border-bottom: none;
-  }*/
+    line-height: 50px;
+    font-size: 1.4em;
+    display: list-item;
+    margin-right: -4px;
+    margin-bottom:100px;
+  }
 
   .nav > ul > li {
     text-align: left;
@@ -153,9 +213,68 @@ li.about{
     padding-left: 25;
   }
 
-  /*.nav li:hover ul {
+  .nav li ul li {
+    position: relative;
     display: block;
-  }*/
+    width: inherit;
+    height: 50px;
+  }
+
+  li.about{
+    margin: 0 0 0 0;
+    position:absolute;
+    bottom:0;
+    left:0;
+    margin-bottom:0px;
+  }
+}
+
+/*----Ratio 1.5----*/
+@media only screen and (-webkit-device-pixel-ratio:1.5) {
+  .cuerpo {
+    margin-left:130px;
+    margin-top:20px;
+  }
+
+  .aboutcuerpo{
+    margin-left:130px;
+    margin-top:-20px;
+  }
+
+  .nav ul {
+    margin-right: 0;
+    width: 130px;
+    height: 100%;
+  }
+  .nav li {
+    border-bottom: none;
+    line-height: 50px;
+    font-size: 1.4em;
+    display: list-item;
+    margin-right: -4px;
+    margin-bottom:100px;
+  }
+
+  .nav > ul > li {
+    text-align: left;
+  }
+
+  .nav > ul > li > a {
+    padding-left: 10;
+  }
+
+  /* Sub Menus */
+  .nav li ul {
+    margin-top:0px;
+    position: relative;
+    display: list-item;
+    width: inherit;
+    height: 50px;
+  }
+
+  .nav > ul > li > ul > li > a {
+    padding-left: 25;
+  }
 
   .nav li ul li {
     position: relative;
@@ -173,3 +292,65 @@ li.about{
   }
 }
 
+/*----Ratio 2----*/
+@media only screen and (-webkit-min-device-pixel-ratio : 2) {
+  .cuerpo {
+    margin-left:130px;
+    margin-top:20px;
+  }
+
+  .aboutcuerpo{
+    margin-left:130px;
+    margin-top:-20px;
+  }
+
+  .nav ul {
+    margin-right: 0;
+    width: 130px;
+    height: 100%;
+  }
+  .nav li {
+    border-bottom: none;
+    line-height: 50px;
+    font-size: 1.4em;
+    display: list-item;
+    margin-right: -4px;
+    margin-bottom:100px;
+  }
+
+  .nav > ul > li {
+    text-align: left;
+  }
+
+  .nav > ul > li > a {
+    padding-left: 10;
+  }
+
+  /* Sub Menus */
+  .nav li ul {
+    margin-top:0px;
+    position: relative;
+    display: list-item;
+    width: inherit;
+    height: 50px;
+  }
+
+  .nav > ul > li > ul > li > a {
+    padding-left: 25;
+  }
+
+  .nav li ul li {
+    position: relative;
+    display: block;
+    width: inherit;
+    height: 50px;
+  }
+
+  li.about{
+    margin: 0 0 0 0;
+    position:absolute;
+    bottom:0;
+    left:0;
+    margin-bottom:0px;
+  }
+}
