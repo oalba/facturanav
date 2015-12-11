@@ -2,6 +2,7 @@
 <head>
 <title>Editar factura</title>
 <link rel="stylesheet" type="text/css" href="estilo.css">
+<script type="text/javascript" src="scripts.js" ></script>
 </head>
 <body>
 <header>
@@ -31,59 +32,6 @@
 </header>
 <div class="cuerpo">
     <h1><u><i>Editar factura</i></u></h1>
-	<script type="text/javascript">
-	function changeCli(obj) {
-        var selectBox = obj;
-        var selected = selectBox.options[selectBox.selectedIndex].value;
-        var sele = selected.split("|");
-        var textarea = document.getElementById("cliente1");
-        var text = document.getElementById("cif1");
-
-        if(sele[0] === "1"){
-            textarea.style.display = "block";
-            text.style.display = "none";
-        }else if (sele[0] === ""){
-            textarea.style.display = "none";
-            text.style.display = "none";
-        }else{
-            textarea.style.display = "none";
-            text.style.display = "block";
-        }
-        document.getElementById("cif1").value = sele[1];
-    }
-
-    function change(obj,num,pan) {
-        var selectBox = obj;
-        var num = num;
-        var pan = pan;
-        var selected = selectBox.options[selectBox.selectedIndex].value;
-        var sele = selected.split("|");
-        var textarea = document.getElementById("text_area"+num);
-
-        if(sele[0] === "1"){
-            textarea.style.display = "block";
-            document.getElementById("precio"+num).value = pan;
-        }
-        else{
-            textarea.style.display = "none";
-            document.getElementById("precio"+num).value = sele[1];
-        }
-    }
-
-    function seguro($con,$fac,$ord){
-    //var con = document.getElementById('cod_con').value;
-    confirmar=confirm("¿Seguro que desea eliminar el concepto \"" + $con + "\" de la factura \"" + $fac + "\"?");
-        if (confirmar) {
-            // si pulsamos en aceptar
-            alert('El concepto será eliminado.');
-            window.location='delete_con_fac.php?concepto='+$con+'&cod_fac='+$fac+'&orden='+$ord;
-            return true;
-        }else{ 
-            // si pulsamos en cancelar
-            return false;
-        }           
-    }
-    </script>
 <?php
 $data = $_GET['cod_fac'];
 
@@ -240,10 +188,10 @@ while ($row = mysql_fetch_assoc($facs)) {
         //echo "<td>$row2[cantidad]</td>";
         echo "<td><input type='number' step='any' Style='width:60Px' value='$precio' disabled/>€</td>";
         echo "<td><a href='edit_con_fac.php?cod_fac=$data&concepto=$concepto'><input type='button' value='Editar' class='button2'/></a><br/>";
-        echo "<button onclick=\"seguro('".$row2['concepto']."',".$row['cod_fac'].",".$row2['orden'].");\" class='button2'>Eliminar</button></td>";
+        echo "<button onclick=\"seguroConFac('".$row2['concepto']."',".$row['cod_fac'].",".$row2['orden'].");\" class='button2'>Eliminar</button></td>";
         echo "</tr>";
     }
-    //echo "<td><button onclick=\"seguro($row[cod_con]);\">Delete</button></td>";
+    //echo "<td><button onclick=\"seguroConFac($row[cod_con]);\">Delete</button></td>";
     //echo "</tr>";
                
 
@@ -254,7 +202,7 @@ while ($row = mysql_fetch_assoc($facs)) {
     else 
         echo "bgcolor=#ddddff"; //si el resto de la división NO es 0 pongo otro color 
     echo "><td colspan=2></td>";
-    echo "<td><select name='concepto3' onchange='change(this,2,0)' style='white-space:pre-wrap; width: 250px;'>";
+    echo "<td><select name='concepto3' onchange='changeNumPan(this,2,0)' style='white-space:pre-wrap; width: 250px;'>";
     echo "<option selected='selected'></option>";
     echo "<option value='1'>Otro</option>";
     $sql3 = "SELECT * FROM conceptos";

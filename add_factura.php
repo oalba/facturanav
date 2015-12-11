@@ -1,6 +1,7 @@
 <html>
 <head><title>Añadir factura</title>
 <link rel="stylesheet" type="text/css" href="estilo.css">
+<script type="text/javascript" src="scripts.js" ></script>
 </head>
 <body>
 <header>
@@ -56,7 +57,7 @@
         //io3.setAttribute('id', 'show'+nu);
         io3.setAttribute('name', 'conce'+nu);
         io3.setAttribute('style', 'white-space:pre-wrap; width: 250px;');
-        io3.setAttribute('onchange', 'change(this,'+nu+')');
+        io3.setAttribute('onchange', 'changeCon(this,'+nu+')');
 
         var no = document.createElement('option');
         no.value = '';
@@ -149,44 +150,6 @@
  
     ?>
 
-    <script type="text/javascript">
-    function change(obj,nue) {
-        var selectBox = obj;
-        var nue = nue;
-        var selected = selectBox.options[selectBox.selectedIndex].value;
-        var sele = selected.split("|");
-        var textarea = document.getElementById("text_area"+nue);
-
-        if(sele[0] === "1"){
-            textarea.style.display = "block";
-        }
-        else{
-            textarea.style.display = "none";
-        }
-        document.getElementById("precio"+nue).value = sele[1];
-    }
-
-    function changeCli(obj) {
-        var selectBox = obj;
-        var selected = selectBox.options[selectBox.selectedIndex].value;
-        var sele = selected.split("|");
-        var textarea = document.getElementById("cliente1");
-        var text = document.getElementById("cif1");
-
-        if(sele[0] === "1"){
-            textarea.style.display = "block";
-            text.style.display = "none";
-        }else if (sele[0] === ""){
-            textarea.style.display = "none";
-            text.style.display = "none";
-        }else{
-            textarea.style.display = "none";
-            text.style.display = "block";
-        }
-        document.getElementById("cif1").value = sele[1];
-    }
-    </script>
-
     <style type="text/css">
         table { border: 1px solid black; border-collapse: collapse }
         td { border: 1px solid black }
@@ -221,7 +184,7 @@
             <tr>
                 <td><label>Cantidad:</label> <input type="number" name="cant1" value="1" Style="width:40Px"/> </td>
                 <td><label>Concepto:</label> 
-                <select name="conce1" onchange="change(this,1)" style="white-space:pre-wrap; width: 250px;">
+                <select name="conce1" onchange="changeCon(this,1)" style="white-space:pre-wrap; width: 250px;">
                     <option selected="selected"></option>
                     <option value="1">Otro</option>
                     <?php

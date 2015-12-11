@@ -1,7 +1,8 @@
 <html>
 <head>
-<title>Buscar factura</title>
+<title>Administrar facturas</title>
 <link rel="stylesheet" type="text/css" href="estilo.css">
+<script type="text/javascript" src="scripts.js" ></script>
 </head>
 <body>
 <header>
@@ -35,54 +36,6 @@
     $dp = mysql_connect("localhost", "root", "" );
     mysql_select_db("facturas", $dp);
     ?>
-    <script type="text/javascript">
-    function change(obj) {
-        var selectBox = obj;
-        var selected = selectBox.options[selectBox.selectedIndex].value;
-        var textarea = document.getElementById("text_area");
-
-        if(selected === "1"){
-            textarea.style.display = "block";
-        }
-        else{
-            textarea.style.display = "none";
-        }
-    }
-
-    function changeCli(obj) {
-        var selectBox = obj;
-        var selected = selectBox.options[selectBox.selectedIndex].value;
-        var sele = selected.split("|");
-        var textarea = document.getElementById("cliente1");
-        var text = document.getElementById("cif1");
-
-        if(sele[0] === "1"){
-            textarea.style.display = "block";
-            text.style.display = "none";
-        }else if (sele[0] === ""){
-            textarea.style.display = "none";
-            text.style.display = "none";
-        }else{
-            textarea.style.display = "none";
-            text.style.display = "block";
-        }
-        document.getElementById("cif1").value = sele[1];
-    }
-
-    function seguro($cod_fac){
-    //var con = document.getElementById('cod_fac').value;
-    confirmar=confirm("¿Seguro que quiere eliminar la factura con el código \"" + $cod_fac + "\"?"); 
-        if (confirmar) {
-            // si pulsamos en aceptar
-            alert('La factura será eliminada.');
-            window.location='delete_factura.php?cod_fac='+$cod_fac;
-            return true;
-        }else{ 
-            // si pulsamos en cancelar
-            return false;
-        }           
-    }
-    </script>
 
     <!--<style type="text/css">
         table { border: 1px solid black; border-collapse: collapse }
@@ -111,7 +64,7 @@
 
         <input type="checkbox" name="buscar[]" value="concepto">
         <label>Concepto:</label> 
-        <select name="conce" onchange="change(this)" style="white-space:pre-wrap; width: 250px;">
+        <select name="conce" onchange="changeConInde(this)" style="white-space:pre-wrap; width: 250px;">
             <option selected="selected"></option>
             <option value="1">Otro</option>
             <?php
@@ -323,12 +276,12 @@
                 //echo "</tr>";
                 //echo "<td>$row[precio]€</td>";
                 //echo "<td><a href=\"edit_conce.php?concepto=$row[cod_con]\"><input type=\"button\" value=\"Editar\"></a></td>";
-                //echo "<td><button onclick=\"seguro($row[cod_con]);\">Delete</button></td>";
+                //echo "<td><button onclick=\"seguroFac($row[cod_con]);\">Delete</button></td>";
                 echo "</table></td>";
                 echo "<td><button onclick=\"window.location.href='edit_factura.php?cod_fac=$row[cod_fac]'\" class='button1'>Editar</button></td>";
                 echo "<td><button onclick=\"window.location.href='crear_excell.php?cod_fac=$row[cod_fac]'\" class='button2'>Crear Excel</button>";
                 echo "<br/><button onclick=\"window.location.href='crear_pdf.php?cod_fac=$row[cod_fac]'\" class='button2'>Crear PDF</button></td>";
-                echo "<td><button onclick=\"seguro($row[cod_fac]);\" class='button1'>Eliminar</button></td></tr>";
+                echo "<td><button onclick=\"seguroFac($row[cod_fac]);\" class='button1'>Eliminar</button></td></tr>";
 
                 
 

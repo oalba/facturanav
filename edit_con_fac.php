@@ -2,6 +2,7 @@
 <head>
 <title>Editar factura</title>
 <link rel="stylesheet" type="text/css" href="estilo.css">
+<script type="text/javascript" src="scripts.js" ></script>
 </head>
 <body>
 <header>
@@ -31,39 +32,6 @@
 </header>
 <div class="cuerpo">
     <h1><u><i>Editar factura</i></u></h1>
-	<script type="text/javascript">
-    function change(obj,num,pan) {
-        var selectBox = obj;
-        var num = num;
-        var pan = pan;
-        var selected = selectBox.options[selectBox.selectedIndex].value;
-        var sele = selected.split("|");
-        var textarea = document.getElementById("text_area"+num);
-
-        if(sele[0] === "1"){
-            textarea.style.display = "block";
-            document.getElementById("precio"+num).value = pan;
-        }
-        else{
-            textarea.style.display = "none";
-            document.getElementById("precio"+num).value = sele[1];
-        }
-    }
-
-    function seguro($con,$fac,$ord){
-    //var con = document.getElementById('cod_con').value;
-    confirmar=confirm("¿Seguro que desea eliminar el concepto \"" + $con + "\" de la factura \"" + $fac + "\"?");
-        if (confirmar) {
-            // si pulsamos en aceptar
-            alert('El concepto será eliminado.');
-            window.location='delete_con_fac.php?concepto='+$con+'&cod_fac='+$fac+'&orden='+$ord;
-            return true;
-        }else{ 
-            // si pulsamos en cancelar
-            return false;
-        }           
-    }
-    </script>
 <?php
 $data = $_GET['cod_fac'];
 $data2 = $_GET['concepto'];
@@ -196,7 +164,7 @@ $num_fila = 0;
                             echo "<a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button2'></a></td>";
                         }
                         //echo "<td>";
-                        echo "<td><select name='concepto3' onchange='change(this,1,$row2[precio])' style='white-space:pre-wrap; width: 250px;'>";
+                        echo "<td><select name='concepto3' onchange='changeNumPan(this,1,$row2[precio])' style='white-space:pre-wrap; width: 250px;'>";
                         echo "<option value='1' selected='selected'>Otro</option>";
                         $sql2 = "SELECT * FROM conceptos";
                         $cons = mysql_query($sql2);
@@ -236,7 +204,7 @@ $num_fila = 0;
                         echo "<td><input type='number' value='$row2[cantidad]' Style='width:40Px' disabled/></td>";
                         echo "<td><input type='number' step='any' Style='width:60Px' value='$row2[precio]' disabled/>€</td>";
                         echo "<td><a href=\"edit_con_fac.php?cod_fac=$data&concepto=$row2[concepto]\"><input type=\"button\" value=\"Editar\" class='button2'></a><br/>";
-                        echo "<button onclick=\"seguro('".$row2['concepto']."',".$row['cod_fac'].",".$row2['orden'].");\" class='button2'>Eliminar</button></td>";
+                        echo "<button onclick=\"seguroConFac('".$row2['concepto']."',".$row['cod_fac'].",".$row2['orden'].");\" class='button2'>Eliminar</button></td>";
                         echo "</tr>";
                         //echo "</form>";
                     }
@@ -244,7 +212,7 @@ $num_fila = 0;
                 }
                 //echo "<td>$row[precio]€</td>";
                 //echo "<td><a href=\"edit_conce.php?concepto=$row[cod_con]\"><input type=\"button\" value=\"Editar\"></a></td>";
-                //echo "<td><button onclick=\"seguro($row[cod_con]);\">Delete</button></td>";
+                //echo "<td><button onclick=\"seguroConFac($row[cod_con]);\">Delete</button></td>";
                 //echo "</tr>";
 
                 echo "<form enctype='multipart/form-data' action='add_con_fact_act.php?cod_fac=$data' method='post'>"; 
@@ -254,7 +222,7 @@ $num_fila = 0;
                 else 
                     echo "bgcolor=#ddddff"; //si el resto de la división NO es 0 pongo otro color 
                 echo "><td colspan=2></td>";
-                echo "<td><select name='concepto3' onchange='change(this,2,0)' style='white-space:pre-wrap; width: 250px;'>";
+                echo "<td><select name='concepto3' onchange='changeNumPan(this,2,0)' style='white-space:pre-wrap; width: 250px;'>";
                 echo "<option selected='selected'></option>";
                 echo "<option value='1'>Otro</option>";
                 $sql3 = "SELECT * FROM conceptos";

@@ -2,6 +2,7 @@
 <head>
 <title>Añadir concepto</title>
 <link rel="stylesheet" type="text/css" href="estilo.css">
+<script type="text/javascript" src="scripts.js" ></script>
 </head>
 <body>
 <header>
@@ -31,21 +32,6 @@
 </header>
 <div class="cuerpo">
     <h1><u><i>Nuevo concepto</i></u></h1>
-    <script type="text/javascript">
-function seguro($con){
-confirmar=confirm("¿Seguro que quiere eliminar el concepto: " + $con + "?"); 
-    if (confirmar) {
-        // si pulsamos en aceptar
-        alert('El concepto será eliminado.');
-        window.location='delete_conce.php?concepto='+$con;
-        return true;
-    }else{ 
-        // si pulsamos en cancelar
-        return false;
-    }           
-}
-</script>
-
 Añadir concepto: <br/><br/>
 <table border=0>
     <tr><th>Concepto</th><th>Precio</th></tr>
@@ -87,8 +73,7 @@ if(isset($_POST['guardar'])){
             echo ">";
             echo "<td>$row[concepto]</td>";
             echo "<td>$row[precio]€</td>";
-            echo "<td><a href=\"edit_conce.php?concepto=$row[cod_con]\"><input type=\"button\" value=\"Editar\"></a></td>";
-            //echo "<td><button onclick=\"seguro($row[cod_con]);\">Delete</button></td>";
+            echo "<td><button onclick=\"window.location.href='edit_conce.php?cod_con=$row[cod_con]'\">Editar</button></td>";
             echo "</tr>";
             $num_fila++;
         }

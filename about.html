@@ -2,6 +2,7 @@
 <head>
 <title>Añadir cliente</title>
 <link rel="stylesheet" type="text/css" href="estilo.css">
+<script type="text/javascript" src="scripts.js" ></script>
 </head>
 <body>
 <header>

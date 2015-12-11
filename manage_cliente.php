@@ -2,6 +2,7 @@
 <head>
 <title>Administrar clientes</title>
 <link rel="stylesheet" type="text/css" href="estilo.css">
+<script type="text/javascript" src="scripts.js" ></script>
 </head>
 <body>
 <header>
@@ -74,7 +75,7 @@ while ($row = mysql_fetch_assoc($conce)) {
     echo "<td>".nl2br($row['direccion'])."</td>";
     echo "<td>$row[cuenta]</td>";
 	echo "<td><button onclick=\"window.location.href='edit_cliente.php?cif=$row[cif]'\" class='button1'>Editar</button></td>";
-	echo "<td><button onclick=\"seguro('$row[cif]');\" class='button1'>Eliminar</button></td>";
+	echo "<td><button onclick=\"segurocli('$row[cif]');\" class='button1'>Eliminar</button></td>";
 	echo "</tr>";
 	$num_fila++; 
 };
@@ -84,21 +85,6 @@ echo "¿No está aquí? <a href='add_cliente.php'><input type='button' value='A�
 mysql_close($dp);
 }
 ?>
-<script type="text/javascript">
-function seguro($cif){
-//var con = document.getElementById('cif').value;
-confirmar=confirm("¿Seguro que desea eliminar el cliente con el CIF \"" + $cif + "\"?"); 
-	if (confirmar) {
-		// si pulsamos en aceptar
-		alert('El cliente será eliminado.');
-		window.location='delete_cliente.php?cif='+$cif;
-		return true;
-	}else{ 
-		// si pulsamos en cancelar
-		return false;
-	}			
-}
-</script>
 </div>
 </body>
 </html>
