@@ -1,9 +1,23 @@
+function seguroconn($cod,$con){
+//var con = document.getElementById('cod_con').value;
+confirmar=confirm("¿Seguro que quieres eliminar el concepto \"" + $con + "\"?"); 
+    if (confirmar) {
+        // si pulsamos en aceptar
+        alert('El concepto será eliminado.');
+        window.location='inc/delete_con.php?cod_con='+$cod;
+        return true;
+    }else{ 
+        // si pulsamos en cancelar
+        return false;
+    }           
+}
+
 function seguroconce($con){
 confirmar=confirm("¿Seguro que quiere eliminar el concepto: " + $con + "?"); 
     if (confirmar) {
         // si pulsamos en aceptar
         alert('El concepto será eliminado.');
-        window.location='delete_conce.php?concepto='+$con;
+        window.location='inc/delete_conce.php?concepto='+$con;
         return true;
     }else{ 
         // si pulsamos en cancelar
@@ -17,7 +31,7 @@ confirmar=confirm("¿Seguro que desea eliminar el cliente con el CIF \"" + $cif 
 	if (confirmar) {
 		// si pulsamos en aceptar
 		alert('El cliente será eliminado.');
-		window.location='delete_cliente.php?cif='+$cif;
+		window.location='inc/delete_cliente.php?cif='+$cif;
 		return true;
 	}else{ 
 		// si pulsamos en cancelar
@@ -67,7 +81,7 @@ function seguroConFac($con,$fac,$ord){
     if (confirmar) {
         // si pulsamos en aceptar
         alert('El concepto será eliminado.');
-        window.location='delete_con_fac.php?concepto='+$con+'&cod_fac='+$fac+'&orden='+$ord;
+        window.location='inc/delete_con_fac.php?concepto='+$con+'&cod_fac='+$fac+'&orden='+$ord;
         return true;
     }else{ 
         // si pulsamos en cancelar
@@ -112,7 +126,7 @@ confirmar=confirm("¿Seguro que quiere eliminar la factura con el código \"" + 
     if (confirmar) {
         // si pulsamos en aceptar
         alert('La factura será eliminada.');
-        window.location='delete_factura.php?cod_fac='+$cod_fac;
+        window.location='inc/delete_factura.php?cod_fac='+$cod_fac;
         return true;
     }else{ 
         // si pulsamos en cancelar

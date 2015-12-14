@@ -42,6 +42,6 @@ if (IsChecked('cuenta','kutxa')){
 $aldatu="UPDATE facturas SET fecha='$insfecha',IVA=$iva,existe_cli=$exi,cliente='$inscli',cuenta_laboral='$laboral',cuenta_kutxa='$kutxa',detalles='$detalles' WHERE cod_fac=$data";
 mysql_query($aldatu);
 //f5($data);
-header("Location: edit_factura.php?cod_fac=$data");
+header("Location: ../edit_factura.php?cod_fac=$data");
 mysql_close($dp);
 ?>

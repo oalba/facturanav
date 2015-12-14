@@ -1,9 +1,9 @@
 <html>
 <head>
 <title>Editar factura</title>
-<link rel="shortcut icon" href="icon.png" type="image/png"/>
-<link rel="stylesheet" type="text/css" href="estilo.css">
-<script type="text/javascript" src="scripts.js" ></script>
+<link rel="shortcut icon" href="images/icon.png" type="image/png"/>
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<script type="text/javascript" src="js/scripts.js" ></script>
 </head>
 <body>
 <header>
@@ -146,7 +146,7 @@ $num_fila = 0;
                     $concepto = $row2['concepto'];
                     $orden = $row2['orden'];
                     if ($row2['concepto'] == $data2) {
-                        echo "<form enctype='multipart/form-data' action='edit_con_fact_act.php?cod_fac=$data' method='post'>";
+                        echo "<form enctype='multipart/form-data' action='inc/edit_con_fact_act.php?cod_fac=$data' method='post'>";
 
                         echo "<tr "; 
                         if ($num_fila%2==0) 
@@ -157,12 +157,12 @@ $num_fila = 0;
 
                         echo "<td>$orden</td>";
                         if (++$counter == $numResults) {
-                            echo "<td><a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button1'></a></td>";
+                            echo "<td><a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button1'></a></td>";
                         } elseif ($counter == 1) {
-                            echo "<td><a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button1'></a></td>";
+                            echo "<td><a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button1'></a></td>";
                         } else {
-                            echo "<td><a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button2'></a><br/>";
-                            echo "<a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button2'></a></td>";
+                            echo "<td><a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button2'></a><br/>";
+                            echo "<a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button2'></a></td>";
                         }
                         //echo "<td>";
                         echo "<td><select name='concepto3' onchange='changeNumPan(this,1,$row2[precio])' style='white-space:pre-wrap; width: 250px;'>";
@@ -193,12 +193,12 @@ $num_fila = 0;
                         echo ">";
                         echo "<td>$orden</td>";
                         if (++$counter == $numResults) {
-                            echo "<td><a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button1'></a></td>";
+                            echo "<td><a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button1'></a></td>";
                         } elseif ($counter == 1) {
-                            echo "<td><a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button1'></a></td>";
+                            echo "<td><a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button1'></a></td>";
                         } else {
-                            echo "<td><a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button2'></a><br/>";
-                            echo "<a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button2'></a></td>";
+                            echo "<td><a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button2'></a><br/>";
+                            echo "<a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button2'></a></td>";
                         }
 
                         echo "<td><textarea rows='3' cols='40' disabled>$row2[concepto]</textarea></td>";
@@ -216,7 +216,7 @@ $num_fila = 0;
                 //echo "<td><button onclick=\"seguroConFac($row[cod_con]);\">Delete</button></td>";
                 //echo "</tr>";
 
-                echo "<form enctype='multipart/form-data' action='add_con_fact_act.php?cod_fac=$data' method='post'>"; 
+                echo "<form enctype='multipart/form-data' action='inc/add_con_fact_act.php?cod_fac=$data' method='post'>"; 
                 echo "<tr "; 
                 if ($num_fila%2==0) 
                     echo "bgcolor=#dddddd"; //si el resto de la división es 0 pongo un color 

@@ -1,8 +1,8 @@
 <html>
 <head><title>Administrar facturas</title>
-<link rel="shortcut icon" href="icon.png" type="image/png"/>
-<link rel="stylesheet" type="text/css" href="estilo.css">
-<script type="text/javascript" src="scripts.js" ></script>
+<link rel="shortcut icon" href="images/icon.png" type="image/png"/>
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<script type="text/javascript" src="js/scripts.js" ></script>
 </head>
 <body>
 <header>
@@ -205,8 +205,8 @@
                     //}
                 }
                 echo "<td>$row[iva]%</td><th>Concepto</th><th>Cantidad</th><th>Precio</th><th>Subtotal</th><th>IVA €</th><th>TOTAL</th><td><a href=\"edit_factura.php?cod_fac=$row[cod_fac]\"><input type=\"button\" value=\"Editar\"></a></td>";
-                echo "<td><a href=\"crear_excell.php?cod_fac=$row[cod_fac]\"><input type=\"button\" value=\"Crear Excel\"></a>";
-                echo "<br/><a href=\"crear_pdf.php?cod_fac=$row[cod_fac]\"><input type=\"button\" value=\"Crear PDF\"></a></td>";
+                echo "<td><a href=\"inc/crear_excell.php?cod_fac=$row[cod_fac]\"><input type=\"button\" value=\"Crear Excel\"></a>";
+                echo "<br/><a href=\"inc/crear_pdf.php?cod_fac=$row[cod_fac]\"><input type=\"button\" value=\"Crear PDF\"></a></td>";
                 echo "<td><button onclick=\"seguroFac($row[cod_fac]);\">Eliminar</button></td>";
                 echo "</tr>";
                 $selec2 = mysql_query("SELECT concepto, cantidad, precio_u as precio FROM tener_f_c WHERE cod_fac='$row[cod_fac]' ORDER BY orden");

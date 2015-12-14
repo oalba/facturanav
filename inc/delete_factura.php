@@ -8,7 +8,7 @@ $eliminar="DELETE FROM tener_f_c WHERE cod_fac=$data";
 mysql_query($eliminar);
 $eliminar2="DELETE FROM facturas WHERE cod_fac=$data";
 mysql_query($eliminar2);
-header("Location: index.php");
+header("Location: ../index.php");
 
 mysql_close($dp);
 ?>

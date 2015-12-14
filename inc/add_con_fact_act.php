@@ -17,7 +17,7 @@ $orden = $ordee+1;
 $concepto = trim(preg_replace('/\s\s+/', ' ', $concepto));
 $gehitu="INSERT INTO tener_f_c (orden,concepto,cod_fac,cantidad,precio_u) VALUES ($orden,'$concepto',$data,$cantidad,'$precio')";
 mysql_query($gehitu);
-header("Location: edit_factura.php?cod_fac=$data");
+header("Location: ../edit_factura.php?cod_fac=$data");
 mysql_close($dp);
 
 ?>

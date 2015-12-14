@@ -17,7 +17,7 @@ while ($row=mysql_fetch_assoc($orden)) {
 
 $eliminar="DELETE FROM tener_f_c WHERE cod_fac=$data AND concepto='$data2'";
 mysql_query($eliminar);
-header("Location: edit_factura.php?cod_fac=$data");
+header("Location: ../edit_factura.php?cod_fac=$data");
 
 mysql_close($dp);
 ?>

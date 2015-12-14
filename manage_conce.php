@@ -1,9 +1,9 @@
 <html>
 <head>
 <title>Administrar conceptos</title>
-<link rel="shortcut icon" href="icon.png" type="image/png"/>
-<link rel="stylesheet" type="text/css" href="estilo.css">
-<script type="text/javascript" src="scripts.js" ></script>
+<link rel="shortcut icon" href="images/icon.png" type="image/png"/>
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<script type="text/javascript" src="js/scripts.js" ></script>
 </head>
 <body>
 <header>
@@ -74,7 +74,7 @@ while ($row = mysql_fetch_assoc($conce)) {
 	echo "<td>$row[concepto]</td>";
     echo "<td>$row[precio]€</td>";
 	echo "<td><button onclick=\"window.location.href='edit_conce.php?cod_con=$row[cod_con]'\">Editar</button></td>";
-	echo "<td><button onclick=\"seguro($row[cod_con],'$row[concepto]');\">Eliminar</button></td>";
+	echo "<td><button onclick=\"seguroconn($row[cod_con],'$row[concepto]');\">Eliminar</button></td>";
 	//echo "<td><button onclick=\"window.location.href='edit_conce.php?cod_con=$row[cod_con]'\" class='button1'>Editar</button></td>";
 	//echo "<td><button onclick=\"seguro($row[cod_con],'$row[concepto]');\" class='button1'>Eliminar</button></td>";
 	echo "</tr>";
@@ -86,21 +86,6 @@ echo "¿No está aquí? <a href='add_conce.php'><input type='button' value='Aña
 mysql_close($dp);
 }
 ?>
-<script type="text/javascript">
-function seguro($cod,$con){
-//var con = document.getElementById('cod_con').value;
-confirmar=confirm("¿Seguro que quieres eliminar el concepto \"" + $con + "\"?"); 
-	if (confirmar) {
-		// si pulsamos en aceptar
-		alert('El concepto será eliminado.');
-		window.location='delete_con.php?cod_con='+$cod;
-		return true;
-	}else{ 
-		// si pulsamos en cancelar
-		return false;
-	}			
-}
-</script>
 </div>
 </body>
 </html>

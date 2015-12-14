@@ -1,12 +1,12 @@
 <?php
-$data = $_GET['cod_con'];
+$data = $_GET['cif'];
 
 $dp = mysql_connect("localhost", "root", "" );
 mysql_select_db("facturas", $dp);
 
-$eliminar="DELETE FROM conceptos WHERE cod_con=$data";
+$eliminar="DELETE FROM clientes WHERE cif='$data'";
 mysql_query($eliminar);
-header("Location: manage_conce.php");
+header("Location: ../manage_cliente.php");
 
 mysql_close($dp);
 ?>

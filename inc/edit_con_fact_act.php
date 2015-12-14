@@ -15,7 +15,7 @@ if ($_POST['concepto3'] == 1) {
 $aldatu="UPDATE tener_f_c SET concepto='$concepto',cantidad=$cantidad,precio_u='$precio' WHERE cod_fac=$data AND concepto='$concepto2'";
 mysql_query($aldatu);
 
-header("Location: edit_factura.php?cod_fac=$data");
+header("Location: ../edit_factura.php?cod_fac=$data");
 
 mysql_close($dp);
 

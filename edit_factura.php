@@ -1,9 +1,9 @@
 <html>
 <head>
 <title>Editar factura</title>
-<link rel="shortcut icon" href="icon.png" type="image/png"/>
-<link rel="stylesheet" type="text/css" href="estilo.css">
-<script type="text/javascript" src="scripts.js" ></script>
+<link rel="shortcut icon" href="images/icon.png" type="image/png"/>
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<script type="text/javascript" src="js/scripts.js" ></script>
 </head>
 <body>
 <header>
@@ -52,7 +52,7 @@ $num_fila = 0;
 echo "<table border=1>";
 echo "<tr bgcolor=\"bbbbbb\" align=center><th>Codigo</th><th>Fecha</th><th>Cliente</th><th>CIF</th><th>IVA %</th></tr>";
 while ($row = mysql_fetch_assoc($facs)) {
-    echo "<form enctype='multipart/form-data' action='edit_fac_act.php?cod_fac=$data' method='post'>";
+    echo "<form enctype='multipart/form-data' action='inc/edit_fac_act.php?cod_fac=$data' method='post'>";
     echo "<tr "; 
     if ($num_fila%2==0) 
         echo "bgcolor=#dddddd"; //si el resto de la división es 0 pongo un color 
@@ -174,12 +174,12 @@ while ($row = mysql_fetch_assoc($facs)) {
         echo ">";
         echo "<td>$orden</td>";
         if (++$counter == $numResults) {
-            echo "<td><a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button1'/></a></td>";
+            echo "<td><a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button1'/></a></td>";
         } elseif ($counter == 1) {
-            echo "<td><a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button1'/></a></td>";
+            echo "<td><a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button1'/></a></td>";
         } else {
-            echo "<td><a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button2'/></a><br/>";
-            echo "<a href='edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button2'/></a></td>";
+            echo "<td><a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=subir&orden=$orden'><input type='button' value='Subir' class='button2'/></a><br/>";
+            echo "<a href='inc/edit_con_fac_ord.php?cod_fac=$data&concepto=$concepto&accion=bajar&orden=$orden'><input type='button' value='Bajar' class='button2'/></a></td>";
         }
                    
                     
@@ -196,7 +196,7 @@ while ($row = mysql_fetch_assoc($facs)) {
     //echo "</tr>";
                
 
-    echo "<form enctype='multipart/form-data' action='add_con_fact_act.php?cod_fac=$data' method='post'>"; 
+    echo "<form enctype='multipart/form-data' action='inc/add_con_fact_act.php?cod_fac=$data' method='post'>"; 
     echo "<tr "; 
     if ($num_fila%2==0) 
         echo "bgcolor=#dddddd"; //si el resto de la división es 0 pongo un color 

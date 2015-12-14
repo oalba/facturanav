@@ -1,9 +1,9 @@
 <html>
 <head>
 <title>Añadir concepto</title>
-<link rel="shortcut icon" href="icon.png" type="image/png"/>
-<link rel="stylesheet" type="text/css" href="estilo.css">
-<script type="text/javascript" src="scripts.js" ></script>
+<link rel="shortcut icon" href="images/icon.png" type="image/png"/>
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<script type="text/javascript" src="js/scripts.js" ></script>
 </head>
 <body>
 <header>

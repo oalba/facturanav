@@ -1,9 +1,9 @@
 <html>
 <head>
 <title>Administrar facturas</title>
-<link rel="shortcut icon" href="icon.png" type="image/png"/>
-<link rel="stylesheet" type="text/css" href="estilo.css"/>
-<script type="text/javascript" src="scripts.js" ></script>
+<link rel="shortcut icon" href="images/icon.png" type="image/png"/>
+<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+<script type="text/javascript" src="js/scripts.js" ></script>
 </head>
 <body>
 <header>
@@ -280,8 +280,8 @@
                 //echo "<td><button onclick=\"seguroFac($row[cod_con]);\">Delete</button></td>";
                 echo "</table></td>";
                 echo "<td><button onclick=\"window.location.href='edit_factura.php?cod_fac=$row[cod_fac]'\" class='button1'>Editar</button></td>";
-                echo "<td><button onclick=\"window.location.href='crear_excell.php?cod_fac=$row[cod_fac]'\" class='button2'>Crear Excel</button>";
-                echo "<br/><button onclick=\"window.location.href='crear_pdf.php?cod_fac=$row[cod_fac]'\" class='button2'>Crear PDF</button></td>";
+                echo "<td><button onclick=\"window.location.href='inc/crear_excell.php?cod_fac=$row[cod_fac]'\" class='button2'>Crear Excel</button>";
+                echo "<br/><button onclick=\"window.location.href='inc/crear_pdf.php?cod_fac=$row[cod_fac]'\" class='button2'>Crear PDF</button></td>";
                 echo "<td><button onclick=\"seguroFac($row[cod_fac]);\" class='button1'>Eliminar</button></td></tr>";
 
                 

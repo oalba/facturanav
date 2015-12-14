@@ -29,7 +29,7 @@ if ($accion=="subir") {
 	//mysql_query($update2);
 }
 
-header("Location: edit_factura.php?cod_fac=$data");
+header("Location: ../edit_factura.php?cod_fac=$data");
 
 mysql_close($dp);
 
