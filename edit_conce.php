@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Editar concepto</title>
+<link rel="shortcut icon" href="icon.png" type="image/png"/>
 <link rel="stylesheet" type="text/css" href="estilo.css">
 <script type="text/javascript" src="scripts.js" ></script>
 </head>
