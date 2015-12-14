@@ -120,13 +120,13 @@ $num_fila = 0;
                 } else {
                     echo "<input type='checkbox' name='cuenta[]' value='laboral' disabled/>";
                 }
-                echo "Nº Cta. Laboral: 11111<br/>";
+                echo "Nº Cta. Laboral: **** **** ****<br/>";
                 if ($row['cuenta_kutxa'] != NULL) {
                     echo "<input type='checkbox' name='cuenta[]' value='kutxa' checked='checked' disabled/>";
                 } else {
                     echo "<input type='checkbox' name='cuenta[]' value='kutxa' disabled/>";
                 }
-                echo "Nº Cta. Kutxa: 111111";
+                echo "Kutxabank: **** **** ****";
                 echo "</td>";
 
                 //echo "<td><a href='edit_cue_fac.php?cod_fac=$data'><input type='button' value='Editar'></a></td>";

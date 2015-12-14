@@ -202,8 +202,8 @@
         <button type="button" onclick="myFunction()">Añadir</button><br><br>
         IVA: <input type="number" name="iva" value="21" Style="width:40Px"/><br><br>
         Mostrar Nº de cuenta:<br>
-        <input type="checkbox" name="cuenta[]" value="laboral"/> Nº Cta. Laboral: 11111 <br>
-        <input type="checkbox" name="cuenta[]" value="kutxa"/> Kutxabank: 111111<br><br>
+        <input type="checkbox" name="cuenta[]" value="laboral"/> Nº Cta. Laboral: **** **** ****<br>
+        <input type="checkbox" name="cuenta[]" value="kutxa"/> Kutxabank: **** **** ****<br><br>
         <input type="submit" name="crear" value="Crear"/>
     </form>
 <?php
@@ -235,12 +235,12 @@ if(isset($_POST['crear'])){
         $kutxa = NULL;
         if (IsChecked('cuenta','laboral')){
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            $laboral = "Nº Cta. Laboral: ";
+            $laboral = "Nº Cta. Laboral: **** **** ****";
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
         if (IsChecked('cuenta','kutxa')){
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            $kutxa = "Kutxabank: ";
+            $kutxa = "Kutxabank: **** **** ****";
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
 

@@ -28,13 +28,13 @@ function IsChecked($chkname,$value){
 }
 
 if (IsChecked('cuenta','laboral')){
-	$laboral = "Nº Cta. Laboral: 11111";
+	$laboral = "Nº Cta. Laboral: **** **** ****";
 }else{
 	$laboral = NULL;
 }
 
 if (IsChecked('cuenta','kutxa')){
-	$kutxa = "Nº Cta. Kutxa: 111111";
+	$kutxa = "Kutxabank: **** **** ****";
 }else{
 	$kutxa = NULL;
 }

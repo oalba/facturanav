@@ -214,13 +214,13 @@ $num_fila = 0;
                 } else {
                     echo "<input type='checkbox' name='cuenta[]' value='laboral'/>";
                 }
-                echo "Nº Cta. Laboral: 11111<br/>";
+                echo "Nº Cta. Laboral: **** **** ****<br/>";
                 if ($row['cuenta_kutxa'] != NULL) {
                     echo "<input type='checkbox' name='cuenta[]' value='kutxa' checked='checked'/>";
                 } else {
                     echo "<input type='checkbox' name='cuenta[]' value='kutxa'/>";
                 }
-                echo "Nº Cta. Kutxa: 111111";
+                echo "Nº Cta. Kutxa: **** **** ****";
                 echo "</td>";
 
                 echo "<td><input type='submit' name='guardarcu' value='Guardar'/></td>";
