@@ -46,21 +46,35 @@
     </style>-->
 
     <form enctype="multipart/form-data" action="" method="post">
-        <input type="checkbox" name="buscar[]" value="fecha">Fecha: <input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>"/><br><br>
+        <input type="checkbox" name="buscar[]" value="fecha"><label>Fecha:</label> <input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>"/><br><br>
 
-        <input type="checkbox" name="buscar[]" value="numero">Nº de factura: <input type="number" name="num"/><br><br>
+        <input type="checkbox" name="buscar[]" value="numero"><label>Nº de factura:</label> <input type="number" name="num"/><br><br>
 
         <input type="checkbox" name="buscar[]" value="cliente"><label>Cliente:</label> 
-        <select name="cli1" onchange="changeCli(this)" style="white-space:pre-wrap; width: 100px;" >
+        <select name="cli1" onchange="changeCliman(this)" style="white-space:pre-wrap; width: 100px;" >
             <option selected="selected"></option>
             <option value="1">Otro</option>
             <?php
-            $sql = "SELECT * FROM clientes";
+            $sql = "SELECT existe_cli, cliente FROM facturas GROUP BY cliente";
+            $clis = mysql_query($sql);
+            while ($row = mysql_fetch_assoc($clis)) {
+                if ($row[existe_cli] == 0) {
+                    print("<option value='".$row[cliente]."'>$row[cliente]</option>");
+                } else {
+                    $sqlc = mysql_query("SELECT direccion,cif FROM clientes WHERE cif='$row[cliente]'");
+                    $direccion = mysql_result($sqlc,0,0);
+                    $cif = mysql_result($sqlc,0,1);
+                    print("<option value='".$cif."'>$direccion</option>");
+                }
+            }
+            ?>
+            <!--<?php
+            /*$sql = "SELECT * FROM clientes";
             $clis = mysql_query($sql);
             while ($row = mysql_fetch_assoc($clis)) {
                 print("<option value='".$row[direccion]."|".$row[cif]."'>$row[direccion]</option>");
-            }
-            ?>
+            }*/
+            ?>-->
         </select>
         <input id="cif1" type="text" name="cif1" value="" style="display: none" disabled/>
         <textarea id="cliente1" name="cliente1" rows="5" style="display: none"></textarea><br><br>
@@ -80,7 +94,7 @@
         </select>
         <textarea id="text_area" name="concepto" rows="1" cols="50" style="display: none"></textarea><br><br>
 
-        <input type="checkbox" name="buscar[]" value="iva">IVA: <input type="number" name="iva" value="21" Style="width:40Px"/><br><br>
+        <input type="checkbox" name="buscar[]" value="iva"><label>IVA:</label> <input type="number" name="iva" value="21" Style="width:40Px"/><br><br>
         <input type="submit" name="buscar1" value="Buscar"/>
     </form>
     <?php
@@ -122,19 +136,15 @@
                     $cli1 = $_POST['cliente1'];
                     $sele = "SELECT facturas.cod_fac as cod_fac,facturas.fecha as fecha, facturas.cliente as cliente, facturas.existe_cli as existe, facturas.iva as iva, facturas.detalles as detalles, tener_f_c.concepto as concepto, tener_f_c.cantidad as cantidad, tener_f_c.precio_u as precio FROM facturas, tener_f_c WHERE facturas.cod_fac=tener_f_c.cod_fac AND facturas.cliente LIKE '%$cli1%'";
                 } else {
-                    $cli = explode('|', $_POST['cli1']);
-                    $cliente = $cli[0]."\n".$cli[1];
-                    $inscli = $cli[1];
+                    $inscli = $_POST['cli1'];
                     $sele = "SELECT facturas.cod_fac as cod_fac,facturas.fecha as fecha, facturas.cliente as cliente, facturas.existe_cli as existe, facturas.iva as iva, facturas.detalles as detalles, tener_f_c.concepto as concepto, tener_f_c.cantidad as cantidad, tener_f_c.precio_u as precio FROM facturas, tener_f_c WHERE facturas.cod_fac=tener_f_c.cod_fac AND facturas.cliente='$inscli'";
                 }
             } else {
                 if ($_POST['cli1'] == 1) {
-                    $cli1 = $_POST['cli1'];
+                    $cli1 = $_POST['cliente1'];
                     $sele = $sele." AND facturas.cliente LIKE '%$cli1%'";
                 } else {
-                    $cli = explode('|', $_POST['cli1']);
-                    $cliente = $cli[0]."\n".$cli[1];
-                    $inscli = $cli[1];
+                    $inscli = $_POST['cli1'];
                     $sele = $sele." AND facturas.cliente='$inscli'";
                 }
             }

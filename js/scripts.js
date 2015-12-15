@@ -59,6 +59,60 @@ function changeCli(obj) {
     document.getElementById("cif1").value = sele[1];
 }
 
+function changeCliman(obj) {
+    var selectBox = obj;
+    var selected = selectBox.options[selectBox.selectedIndex].value;
+    var textarea = document.getElementById("cliente1");
+    var text = document.getElementById("cif1");
+
+    if(selected === "1"){
+        textarea.style.display = "block";
+        text.style.display = "none";
+    }else if (selected === ""){
+        textarea.style.display = "none";
+        text.style.display = "none";
+    }else{
+        textarea.style.display = "none";
+        text.style.display = "block";
+    }
+    document.getElementById("cif1").value = selected;
+}
+
+function changeClim(obj,ver) {
+    var selectBox = obj;
+    var version = ver;
+    var selected = selectBox.options[selectBox.selectedIndex].value;
+    var sele = selected.split("|");
+    var textarea = document.getElementById("cliente1"+version);
+    var text = document.getElementById("cif1"+version);
+
+    if(sele[0] === "1"){
+        textarea.style.display = "block";
+        text.style.display = "none";
+    }else if (sele[0] === ""){
+        textarea.style.display = "none";
+        text.style.display = "none";
+    }else{
+        textarea.style.display = "none";
+        text.style.display = "block";
+    }
+    document.getElementById("cif1"+version).value = sele[1];
+}
+
+function changeConIndem(obj,ver) {
+    var selectBox = obj;
+    var version = ver;
+    var selected = selectBox.options[selectBox.selectedIndex].value;
+    var textarea = document.getElementById("text_area"+version);
+
+    if(selected === "1"){
+        textarea.style.display = "block";
+    }
+    else{
+        textarea.style.display = "none";
+    }
+} 
+
 function changeCon(obj,nue) {
     var selectBox = obj;
     var nue = nue;
