@@ -39,7 +39,7 @@ Añadir cliente: <br/><br/>
 <form enctype='multipart/form-data' action='' method='post'>
 Dirección: <br/><textarea name="direccion" rows="5"></textarea><br/><br/>
 CIF: <input type="text" name="cif" required/><br/><br/>
-Cuenta: <input type="number" name="cuenta"/><br/><br/>
+Cuenta: <input type="text" name="cuenta" size="30"/><br/><br/>
 <input type='submit' name='guardar' value='Guardar'/><br/>
 </form>
 
