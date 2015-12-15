@@ -1,6 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <title>Editar cliente</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="shortcut icon" href="images/icon.png" type="image/png"/>
 <link rel="stylesheet" type="text/css" href="css/estilo.css">
 <script type="text/javascript" src="js/scripts.js" ></script>
