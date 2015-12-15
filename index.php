@@ -183,6 +183,7 @@
         if (mysql_num_rows($selec) == 0){
             echo "<br/>¡ERROR! No hay facturas que cumplan esas condiciones.";
         }else{
+            echo "<br/><button onclick=\"window.location.href='cambios_masa.php'\">Hacer cambio en masa</button><br/><br/>";
             $num_fila = 0; 
             echo "<table border=1 style='border: 1px solid black; border-collapse: collapse;width: 100%;'>";
             while ($row = mysql_fetch_assoc($selec)) {
@@ -301,7 +302,7 @@
                 
                 $num_fila++;
             }
-            echo "</table><br/> Se han encontrado $num_fila facturas que cumplen esas condiciones.";
+            echo "</table><br/> Se han encontrado $num_fila facturas que cumplen esas condiciones. <button onclick=\"window.location.href='cambios_masa.php'\">Hacer cambio en masa</button>";
         }
     }
     mysql_close($dp);
