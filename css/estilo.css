@@ -96,6 +96,29 @@ li.about{
   display: block;
 }
 
+.go-top {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4em;
+  position: fixed;
+  bottom: 0em;
+  right: 0em;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(4, 4, 4, 0.6);
+  //font-size: 12px;
+  padding: 10px;
+  display: none;
+  margin: 0;
+}
+
+.go-top:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-decoration: none;
+}
+
+
+
 /*******************************************
    Style menu for larger screens
 

@@ -9,6 +9,8 @@ $direccion = mysql_result($sele,0,0);
 
 $update="UPDATE facturas SET existe_cli=0, cliente='$direccion' WHERE cliente='$data'";
 mysql_query($update);
+$update2="UPDATE deleted_facturas SET existe_cli=0, cliente='$direccion' WHERE cliente='$data'";
+mysql_query($update2);
 
 $eliminar="DELETE FROM clientes WHERE cif='$data'";
 mysql_query($eliminar);

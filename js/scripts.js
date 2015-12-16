@@ -187,3 +187,12 @@ confirmar=confirm("¿Seguro que quiere eliminar la factura con el código \"" + 
         return false;
     }           
 }
+
+window.onscroll = function() {
+    var top = document.getElementById("go-top");
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        top.style.display = "block";
+    } else {
+        top.style.display = "none";
+    }
+}

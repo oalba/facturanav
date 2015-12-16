@@ -6,12 +6,15 @@ CREATE TABLE facturas
 fecha date,
 IVA integer unsigned,
 existe_cli boolean,
-cliente varchar(100));
+cliente varchar(100),
+cuenta_laboral varchar(50),
+cuenta_kutxa varchar(50),
+detalles varchar(600));
 
 CREATE TABLE clientes
 (cif varchar(50) primary key,
 direccion varchar(100),
-cuenta integer);
+cuenta varchar(30));
 
 CREATE TABLE conceptos
 (cod_con integer unsigned AUTO_INCREMENT primary key,
@@ -25,6 +28,35 @@ cantidad integer,
 precio_u decimal(10,2),
 orden integer,
 primary key(concepto, cod_fac));
+
+CREATE TABLE deleted_facturas
+(cod_fac integer unsigned primary key,
+fecha date,
+IVA integer unsigned,
+existe_cli boolean,
+cliente varchar(100),
+cuenta_laboral varchar(50),
+cuenta_kutxa varchar(50),
+detalles varchar(600));
+
+CREATE TABLE deleted_tener_f_c
+(concepto varchar(600),
+cod_fac integer unsigned,
+cantidad integer,
+precio_u decimal(10,2),
+orden integer,
+primary key(concepto, cod_fac));
+
+
+
+
+
+
+
+
+
+
+
 
 
 

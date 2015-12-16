@@ -80,5 +80,6 @@ mysql_close($dp);
 <br/>
 <a href="manage_conce.php"><input type="button" value="Atrás"></a>
 </div>
+<a href="#" class="go-top" id="go-top">Subir</a>
 </body>
 </html>

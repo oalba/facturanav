@@ -8,6 +8,7 @@
 <script type="text/javascript" src="js/scripts.js" ></script>
 </head>
 <body>
+
 <header>
 <div class="nav">
 <ul>
@@ -308,5 +309,6 @@
     mysql_close($dp);
     ?>
 </div>
+<a href="#" class="go-top" id="go-top">Subir</a>
 </body>
 </html>
